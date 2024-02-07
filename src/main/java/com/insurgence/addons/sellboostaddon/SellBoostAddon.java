@@ -1,23 +1,15 @@
 package com.insurgence.addons.sellboostaddon;
 
-import com.georgev22.voidchest.api.VoidChestAPI;
 import com.insurgence.addons.sellboostaddon.listeners.*;
 import org.insurgencedev.insurgenceboosters.api.addon.IBoostersAddon;
 import org.insurgencedev.insurgenceboosters.api.addon.InsurgenceBoostersAddon;
 import org.insurgencedev.insurgenceboosters.libs.fo.Common;
 
-@IBoostersAddon(name = "SellBoostAddon", version = "1.0.0", author = "InsurgenceDev", description = "All-in-one sell boost")
+@IBoostersAddon(name = "SellBoostAddon", version = "1.0.1", author = "InsurgenceDev", description = "All-in-one sell boost")
 public class SellBoostAddon extends InsurgenceBoostersAddon {
 
     public static final String TYPE = "Sell";
     public static final String NAMESPACE = "GENERAL_SELL";
-
-    @Override
-    public void onAddonStart() {
-        if (Common.doesPluginExist("VoidChest")) {
-            VoidChestAPI.getInstance().eventManager().register(new VoidChestListener());
-        }
-    }
 
     @Override
     public void onAddonReloadAblesStart() {
@@ -55,6 +47,10 @@ public class SellBoostAddon extends InsurgenceBoostersAddon {
 
         if (Common.doesPluginExist("RivalMobSwords")) {
             registerEvent(new RivalSwordEventListener());
+        }
+
+        if (Common.doesPluginExist("VoidChest")) {
+            registerEvent(new VoidChestListener());
         }
     }
 }
