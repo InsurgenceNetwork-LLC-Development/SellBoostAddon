@@ -1,6 +1,7 @@
 package com.insurgence.addons.sellboostaddon;
 
 import com.insurgence.addons.sellboostaddon.listeners.*;
+import com.insurgence.addons.sellboostaddon.settings.MyConfig;
 import org.insurgencedev.insurgenceboosters.api.addon.IBoostersAddon;
 import org.insurgencedev.insurgenceboosters.api.addon.InsurgenceBoostersAddon;
 import org.insurgencedev.insurgenceboosters.libs.fo.Common;
@@ -13,43 +14,45 @@ public class SellBoostAddon extends InsurgenceBoostersAddon {
 
     @Override
     public void onAddonReloadAblesStart() {
-        if (Common.doesPluginExist("DeluxeSellwands")) {
+        MyConfig.instance.reload();
+
+        if (isSupported("DeluxeSellwands")) {
             registerEvent(new DeluxeSellWandsListener());
         }
 
-        if (Common.doesPluginExist("EconomyShopGUI") || Common.doesPluginExist("EconomyShopGUI-Premium")) {
+        if (isSupported("EconomyShopGUI") || isSupported("EconomyShopGUI-Premium")) {
             registerEvent(new EconomyShopGUIListener());
         }
 
-        if (Common.doesPluginExist("ShopGUIPlus")) {
+        if (isSupported("ShopGUIPlus")) {
             registerEvent(new ShopGUIPlusListener());
         }
 
-        if (Common.doesPluginExist("ManifestCollector")) {
+        if (isSupported("ManifestCollector")) {
             registerEvent(new ManifestCollectorListener());
         }
 
-        if (Common.doesPluginExist("WildTools")) {
+        if (isSupported("WildTools")) {
             registerEvent(new WildToolsListener());
         }
 
-        if (Common.doesPluginExist("RivalPickaxes")) {
+        if (isSupported("RivalPickaxes")) {
             registerEvent(new RivalPickaxeEventListener());
         }
 
-        if (Common.doesPluginExist("RivalHarvesterHoes")) {
+        if (isSupported("RivalHarvesterHoes")) {
             registerEvent(new RivalHoeEventListener());
         }
 
-        if (Common.doesPluginExist("RivalFishingRods")) {
+        if (isSupported("RivalFishingRods")) {
             registerEvent(new RivalRodEventListener());
         }
 
-        if (Common.doesPluginExist("RivalMobSwords")) {
+        if (isSupported("RivalMobSwords")) {
             registerEvent(new RivalSwordEventListener());
         }
 
-        if (Common.doesPluginExist("VoidChest")) {
+        if (isSupported("VoidChest")) {
             registerEvent(new VoidChestListener());
         }
 
