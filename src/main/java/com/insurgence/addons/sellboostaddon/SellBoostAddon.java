@@ -6,7 +6,7 @@ import org.insurgencedev.insurgenceboosters.api.addon.IBoostersAddon;
 import org.insurgencedev.insurgenceboosters.api.addon.InsurgenceBoostersAddon;
 import org.insurgencedev.insurgenceboosters.libs.fo.Common;
 
-@IBoostersAddon(name = "SellBoostAddon", version = "1.0.2", author = "InsurgenceDev", description = "All-in-one sell boost")
+@IBoostersAddon(name = "SellBoostAddon", version = "2.0.0", author = "InsurgenceDev", description = "All-in-one sell boost")
 public class SellBoostAddon extends InsurgenceBoostersAddon {
 
     public static final String TYPE = "Sell";
