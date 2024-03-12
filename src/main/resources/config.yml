@@ -12,3 +12,4 @@ Supported_Plugins: #if the plugin is supported, add it below to apply the boost.
   - "ManifestCollector"
   - "ZithiumCollectors"
   - "VoidChest"
+  - "VirtualSpawner"

@@ -63,6 +63,10 @@ public class SellBoostAddon extends InsurgenceBoostersAddon {
         if (isSupported("Sellwand")) {
             registerEvent(new SellwandListener());
         }
+
+        if (isSupported("VirtualSpawner")) {
+            registerEvent(new VirtualSpawnerEventListener());
+        }
     }
 
     private boolean isSupported(String pluginName) {
