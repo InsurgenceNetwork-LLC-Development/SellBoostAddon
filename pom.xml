@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>SellBoostAddon</artifactId>
-    <version>2.0.2</version>
+    <version>2.0.3</version>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
@@ -37,7 +37,7 @@
             <artifactId>insurgenceboosters</artifactId>
             <version>LATEST</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/libs/IBoosters-1.0.4-API.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/libs/IBoosters-1.0.1-API.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.manifest</groupId>
@@ -122,6 +122,13 @@
             <version>LATEST</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/libs/sellwand-1.5.8-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>virtualspawners</groupId>
+            <artifactId>virtualspawners</artifactId>
+            <version>LATEST</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/libs/VirtualSpawner-5.0.8.jar-out.jar</systemPath>
         </dependency>
     </dependencies>
 
