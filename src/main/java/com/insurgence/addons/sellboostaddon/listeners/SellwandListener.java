@@ -10,12 +10,10 @@ public final class SellwandListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     private void onSell(SellwandSellEvent event) {
-        Player player = event.getPlayer();
+        double multi = AddonUtil.getMulti(event.getPlayer());
 
-        AddonUtil.getMulti(player, (found, multi) -> {
-            if (found) {
-                event.setSellPrice(AddonUtil.calculateAmount(event.getSellPrice(), multi));
-            }
-        });
+        if (multi > 0) {
+            event.setSellPrice(AddonUtil.calculateAmount(event.getSellPrice(), multi));
+        }
     }
 }

@@ -9,10 +9,10 @@ public final class ManifestCollectorListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     private void onSell(CollectorSellEvent event) {
-        AddonUtil.getMulti(event.getPlayer(), (found, multi) -> {
-            if (found) {
-                event.setPrice((float) AddonUtil.calculateAmount(event.getPrice(), multi));
-            }
-        });
+        double multi = AddonUtil.getMulti(event.getPlayer());
+
+        if (multi > 0) {
+            event.setPrice((float) AddonUtil.calculateAmount(event.getPrice(), multi));
+        }
     }
 }

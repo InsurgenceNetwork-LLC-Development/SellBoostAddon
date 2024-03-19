@@ -9,10 +9,10 @@ public final class RivalRodEventListener implements Listener {
 
     @EventHandler
     private void onReceive(RodMoneyReceiveEvent event) {
-        AddonUtil.getMulti(event.getPlayer(), (found, multi) -> {
-            if (found) {
-                event.setMoney(AddonUtil.calculateAmount(event.getMoney(), multi));
-            }
-        });
+        double multi = AddonUtil.getMulti(event.getPlayer());
+
+        if (multi > 0) {
+            event.setMoney(AddonUtil.calculateAmount(event.getMoney(), multi));
+        }
     }
 }

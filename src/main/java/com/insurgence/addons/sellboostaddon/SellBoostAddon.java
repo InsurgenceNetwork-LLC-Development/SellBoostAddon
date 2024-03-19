@@ -9,9 +9,6 @@ import org.insurgencedev.insurgenceboosters.libs.fo.Common;
 @IBoostersAddon(name = "SellBoostAddon", version = "2.0.3", author = "InsurgenceDev", description = "All-in-one sell boost")
 public class SellBoostAddon extends InsurgenceBoostersAddon {
 
-    public static final String TYPE = "Sell";
-    public static final String NAMESPACE = "GENERAL_SELL";
-
     @Override
     public void onAddonReloadAblesStart() {
         MyConfig.instance.reload();

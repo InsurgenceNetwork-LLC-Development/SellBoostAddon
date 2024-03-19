@@ -9,10 +9,10 @@ public final class VirtualSpawnerEventListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     private void onSell(PreSpawnerSellEvent event) {
-        AddonUtil.getMulti(event.getPlayer(), (found, multi) -> {
-            if (found) {
-                event.setAmount(AddonUtil.calculateAmount(event.getAmount(), multi));
-            }
-        });
+        double multi = AddonUtil.getMulti(event.getPlayer());
+
+        if (multi > 0) {
+            event.setAmount(AddonUtil.calculateAmount(event.getAmount(), multi));
+        }
     }
 }

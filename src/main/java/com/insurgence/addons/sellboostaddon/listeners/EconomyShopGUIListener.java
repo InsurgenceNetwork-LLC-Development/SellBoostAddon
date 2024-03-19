@@ -15,17 +15,17 @@ public final class EconomyShopGUIListener implements Listener {
             return;
         }
 
-        AddonUtil.getMulti(event.getPlayer(), (found, multi) -> {
-            if (found) {
-                if (type.equals(Transaction.Type.SELL_GUI_SCREEN) || type.equals(Transaction.Type.SELL_ALL_SCREEN) ||
-                        type.equals(Transaction.Type.SELL_ALL_COMMAND)) {
+        double multi = AddonUtil.getMulti(event.getPlayer());
 
-                    event.getPrices().replaceAll((k, v) -> AddonUtil.calculateAmount(v, multi));
-                    return;
-                }
+        if (multi > 0) {
+            if (type.equals(Transaction.Type.SELL_GUI_SCREEN) || type.equals(Transaction.Type.SELL_ALL_SCREEN) ||
+                    type.equals(Transaction.Type.SELL_ALL_COMMAND)) {
 
-                event.setPrice(AddonUtil.calculateAmount(event.getPrice(), multi));
+                event.getPrices().replaceAll((k, v) -> AddonUtil.calculateAmount(v, multi));
+                return;
             }
-        });
+
+            event.setPrice(AddonUtil.calculateAmount(event.getPrice(), multi));
+        }
     }
 }

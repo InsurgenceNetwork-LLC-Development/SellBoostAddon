@@ -11,28 +11,28 @@ public final class ZithiumCollectorListener implements Listener {
 
     @EventHandler
     private void onSell(CollectorSellEvent event) {
-        AddonUtil.getMulti(event.getPlayer(), (found, multi) -> {
-            if (found) {
-                event.setPrice((float) AddonUtil.calculateAmount(event.getPrice(), multi));
-            }
-        });
+        double multi = AddonUtil.getMulti(event.getPlayer());
+
+        if (multi > 0) {
+            event.setPrice((float) AddonUtil.calculateAmount(event.getPrice(), multi));
+        }
     }
 
     @EventHandler
     private void onSell(CollectorSellAllEvent event) {
-        AddonUtil.getMulti(event.getPlayer(), (found, multi) -> {
-            if (found) {
-                event.setTotalWorth(AddonUtil.calculateAmount(event.getTotalAmount(), multi));
-            }
-        });
+        double multi = AddonUtil.getMulti(event.getPlayer());
+
+        if (multi > 0) {
+            event.setTotalWorth(AddonUtil.calculateAmount(event.getTotalWorth(), multi));
+        }
     }
 
     @EventHandler
     private void onSell(CollectorAutoSellEvent event) {
-        AddonUtil.getMulti(event.getPlayer(), (found, multi) -> {
-            if (found) {
-                event.setTotalWorth(AddonUtil.calculateAmount(event.getTotalAmount(), multi));
-            }
-        });
+        double multi = AddonUtil.getMulti(event.getPlayer());
+
+        if (multi > 0) {
+            event.setTotalWorth(AddonUtil.calculateAmount(event.getTotalWorth(), multi));
+        }
     }
 }

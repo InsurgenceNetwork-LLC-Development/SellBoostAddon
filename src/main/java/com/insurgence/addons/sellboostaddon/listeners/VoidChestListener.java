@@ -14,15 +14,14 @@ public final class VoidChestListener implements Listener {
     @EventHandler
     private void onStart(IBoosterStartEvent event) {
         Player player = event.getPlayer();
+        double multi = AddonUtil.getMulti(event.getPlayer());
 
-        AddonUtil.getMulti(player, (found, multi) -> {
-            if (found) {
-                VoidChestAPI.getInstance().playerManager().getEntity(player.getUniqueId()).thenAccept(data -> {
-                    final long result = Instant.now().toEpochMilli() + (1000 * event.getBoosterData().getTimeLeft());
-                    data.booster().boostTime(result);
-                    data.booster().booster(multi);
-                });
-            }
-        });
+        if (multi > 0) {
+            VoidChestAPI.getInstance().playerManager().getEntity(player.getUniqueId()).thenAccept(data -> {
+                final long result = Instant.now().toEpochMilli() + (1000 * event.getBoosterData().getTimeLeft());
+                data.booster().boostTime(result);
+                data.booster().booster(multi);
+            });
+        }
     }
 }
