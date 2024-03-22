@@ -2,7 +2,6 @@ package com.insurgence.addons.sellboostaddon.listeners;
 
 import com.insurgence.addons.sellboostaddon.utils.AddonUtil;
 import me.zachary.sellwand.api.events.SellwandSellEvent;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
